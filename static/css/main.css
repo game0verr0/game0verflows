@@ -107,3 +107,11 @@ footer {
     color: #27292d;
     padding: 10px;
 }
+
+footer a {
+    color: #E64759 !important;
+}
+
+footer hr {
+    margin: 5px auto;
+}
