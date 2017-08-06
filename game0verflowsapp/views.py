@@ -11,3 +11,11 @@ def home(request):
         'home.html',
         context={'title': 'Accueil - game0verflows'},
     )
+
+def scripts(request):
+    # Render the HTML template index.html with the data in the context variable
+    return render(
+        request,
+        'category.html',
+        context={'title': 'Scripts - game0verflows'},
+    )

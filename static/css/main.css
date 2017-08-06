@@ -17,7 +17,7 @@ hr {
 }
 
 a {
-    color: #1997c6;
+    color: #E64759;
     font-weight: bold;
 }
 
@@ -44,10 +44,10 @@ form {
 }
 
 .red-bg{
-    background-color: #E64759;
+    background-color: #E64759 !important;
 }
 .red-color{
-    color: #E64759;
+    color: #E64759 !important;
 }
 
 .purple-bg{
@@ -97,6 +97,69 @@ header {
     color: #E64759;
 }
 
+header nav {
+    float:right;
+    padding: 4px !important;
+}
+
+header nav a {
+    color: #27292d !important;
+}
+
+header nav a:hover {
+    color: #E64759 !important;
+}
+
+.chrono {
+    background-color: #E64759 !important;
+    border-radius: 5px;
+}
+
+.chrono a, .chrono a:hover{
+    color: white !important;
+}
+
+@media screen and (max-width: 990px) {
+    .navbar-collapse .mr-auto {
+        background-color: white;
+    }
+
+    .navbar-collapse li {
+        border-bottom: 1px solid #434857;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: black;
+    }
+
+    .navbar-toggler-icon {
+        color: #E64759 !important;
+        line-height: 27px;
+        font-weight: bold;
+    }
+
+    #navbarsExampleDefault{
+        margin-top: 46px;
+    }
+
+    .navbar-toggleable-md{
+        top: 0;
+        position: fixed;
+        right: 0;
+    }
+}
+
+
+
+.navbar{
+    z-index: 999 !important;
+}
+
+
+.navbar-toggleable-md .navbar-nav .nav-link {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+}
+
 #main-container{
     margin-top: 20px;
 }
@@ -114,4 +177,41 @@ footer a {
 
 footer hr {
     margin: 5px auto;
+}
+
+.padding10 {
+    padding: 10px;
+}
+
+.blog-article {
+    padding: 20px;
+    background-color: #292F33;
+}
+
+.blog-article:hover{
+    background-color: rgba(25,30,35,.61);
+}
+
+.meta {
+    border-top: 1px dotted whitesmoke;
+    border-bottom: 1px dotted whitesmoke;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.meta b {
+    color: #1BC98E;
+}
+
+.blog-article .link{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+h3, h3:hover {
+    color: white !important;
+    text-decoration: none;
 }
