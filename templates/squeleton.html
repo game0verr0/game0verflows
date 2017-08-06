@@ -16,6 +16,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script type="application/javascript" src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script type="application/javascript" src="{% static 'js/main.js' %}"></script>
     <script>
         $(document).ready(function() {
           $('pre code').each(function(i, block) {
@@ -31,6 +32,35 @@
         <a id="logo" href="/" title="Accueil">
             <b><</b> game<b>0</b>verflows <b>/></b>
         </a>
+        <nav class="navbar navbar-toggleable-md">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">menu</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Failles applicatives</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Failles web</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scripts/">Scripts</a>
+                    </li>
+
+                    <li class="nav-item chrono">
+                        <a class="nav-link" href="#">Actualités</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <div id="main-container" class="container">
