@@ -25,7 +25,7 @@ SECRET_KEY = '!6g%9^r+rxid&m0f(2ygsjd*48f+70s6^z*m3rcbn(y=sihdyt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '127.0.0.1:8000', 'localhost:8000']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'game0verflowsapp.apps.Game0VerflowsappConfig',
+    'tinymce',
+    'django.templatetags'
 ]
 
 MIDDLEWARE = [
@@ -72,12 +74,16 @@ WSGI_APPLICATION = 'game0verflows.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databaslles
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'game0verflows',
+        'USER': 'postgres',
+        'PASSWORD': 'A_CHANGER',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -118,9 +124,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = 'static/admin'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'width': '100%',
+    'height': 300
+}

@@ -1,25 +1,31 @@
 {% extends "squeleton.html" %}
 {% load static %}
+{% load replace_space %}
 {% block content %}
-    <h1>Scripts</h1>
+    <h1>{{ category.name }}</h1>
     <hr>
 
     <div class="row">
-        <div class="col-md-8 padding10">
-            {% for i in "xxxxxxxxxxxxxxxx" %}
+        <div class="col-lg-8 padding10">
+            {% for post in posts.all %}
                 <div class="blog-article">
-                    <a href="#"><h3>Mon super titre !</h3></a>
+                    <a href="{{ category.url }}{{ post.id }}/{{ post.title|replace_space|urlencode|lower }}/"><h3>{{ post.title }}</h3></a>
                     <div class="row">
-                        <div class="col-sm-6 padding10">
-                            <p class="meta">Publié le 07 août 2017 | <b>meta1</b> | <b>meta2</b> | <b>meta3</b></p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        <div class="col-md-6 padding10">
+                            <p class="meta">
+                                Publié le {{ post.date }}
+                                {% for meta in post.meta.all %}
+                                    | <b>{{ meta.name }}</b>
+                                {% endfor %}
                             </p>
-                            <a class="link" href="#"> < Lire l'article /></a>
+                            <p>
+                                {{ post.preview }}
+                            </p>
+                            <a class="link" href="{{ category.url }}{{ post.id }}/{{ post.title|replace_space|urlencode|lower }}/"> < Lire l'article /></a>
                         </div>
-                        <div class="col-sm-6 padding10">
-                            <a href="#">
-                                <img alt="titre" src="{% static '/img/345x240.gif' %}">
+                        <div class="col-md-6 padding10">
+                            <a href="{{ category.url }}{{ post.id }}/{{ post.title|replace_space|urlencode|lower }}/">
+                                <img alt="titre" src="/{{ post.preview_img.url }}">
                             </a>
                         </div>
                     </div>
@@ -28,7 +34,7 @@
             {% endfor %}
         </div>
 
-        <div class="col-md-4 padding10">
+        <div class="col-lg-4 padding10">
             <a data-link-color="#E64759" data-theme="dark" data-chrome="nofooter noborders" class="twitter-timeline" href="https://twitter.com/ZenkSecurity">Tweets by ZenkSecurity</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>

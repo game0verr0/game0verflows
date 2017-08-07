@@ -13,12 +13,32 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
-from django.contrib import admin
+from django.conf.urls import url, include
 from game0verflowsapp import views
+from django.contrib import admin
+admin.autodiscover()
+
+handler404 = views.error
+handler500 = views.error
+handler403 = views.error
+handler400 = views.error
+
 
 urlpatterns = [
+    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.home, name='home'),
-    url(r'^scripts/$', views.scripts),]
+
+    url(r'^failles-applicatives/$', views.failles_applicatives),
+    url(r'^failles-applicatives/(?P<id>[0-9]+)/(?P<name>[\w-]+)/$', views.post),
+
+    url(r'^failles-web/$', views.failles_web),
+    url(r'^failles-web/(?P<id>[0-9]+)/(?P<name>[\w-]+)/$', views.post),
+
+    url(r'^scripts/$', views.scripts),
+    url(r'^scripts/(?P<id>[0-9]+)/(?P<name>[\w-]+)/$', views.post),
+
+    url(r'^actualites/$', views.actualites),
+    url(r'^actualites/(?P<id>[0-9]+)/(?P<name>[\w-]+)/$', views.post),
+]

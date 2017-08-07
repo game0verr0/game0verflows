@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "squeleton.html" %}
+{% load static %}
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p class="meta">
+        Publié le {{ post.date }}
+
+        {% for meta in post.meta.all %}
+        | <b>{{ meta.name }}</b>
+        {% endfor %}
+    </p>
+
+    {{ post.html_content|safe }}
+
+{% endblock %}
